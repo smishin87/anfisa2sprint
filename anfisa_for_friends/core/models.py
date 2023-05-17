@@ -3,7 +3,10 @@ from django.db import models
 
 class PublishedModel(models.Model):
     """Абстрактная модель. Добвляет флаг is_published."""
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=True, verbose_name='Опубликовать')
 
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return self.title
